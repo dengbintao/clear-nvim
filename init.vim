@@ -2,8 +2,9 @@
 let s:plugFilePath = $HOME . '/.local/share/nvim/site/autoload/plug.vim'
 let s:plugFileUrl = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 let s:plugDirectory = $HOME . '/.local/share/nvim/pluged'
-let s:smyckFilePath = $HOME . '/.local/share/nvim/site/colors/smyck.vim'
-let s:smyckFileUrl = 'https://raw.githubusercontent.com/hukl/Smyck-Color-Scheme/master/smyck.vim'
+
+"let s:smyckFilePath = $HOME . '/.local/share/nvim/site/colors/smyck.vim'
+"let s:smyckFileUrl = 'https://raw.githubusercontent.com/hukl/Smyck-Color-Scheme/master/smyck.vim'
 
 function! DownloadFile(path, url)
 	let cmd = 'curl -fLo ' . a:path . ' --create-dirs ' . a:url
@@ -18,15 +19,15 @@ function! DownloadPlugIfNotExist()
 	endif
 endfunction
 
-function! DownloadSmyckIfNotExist()
-	if !filereadable(s:smyckFilePath)
-		call DownloadFile(s:smyckFilePath, s:smyckFileUrl)
-	endif
-endfunction
+"function! DownloadSmyckIfNotExist()
+"	if !filereadable(s:smyckFilePath)
+"		call DownloadFile(s:smyckFilePath, s:smyckFileUrl)
+"	endif
+"endfunction
 
 " If vim-plug/smyck does not exist, download it
 call DownloadPlugIfNotExist()
-call DownloadSmyckIfNotExist()
+"call DownloadSmyckIfNotExist()
 
 " Prepare vim-plug data directory
 call plug#begin('~/.local/share/nvim/pluged')
@@ -51,12 +52,12 @@ let g:lightline = {'colorscheme': 'seoul256',}
 Plug 'kien/rainbow_parentheses.vim'
 
 " for golang
-Plug 'fatih/vim-go', { 'for': 'go' }
+"Plug 'fatih/vim-go', { 'for': 'go' }
 
 call plug#end()
 
 let mapleader=";"
-colorscheme smyck
+"colorscheme smyck
 
 " configs of ultisnips
 let g:UltiSnipsExpandTrigger = '<leader>a'
